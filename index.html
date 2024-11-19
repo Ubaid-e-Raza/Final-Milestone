@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style> body {
+    background-image: url('rbg.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  .editable {
+    border: 1px dashed #ccc;
+    padding: 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+  }</style>
+<body>
+    <div class="container">
+        <h1>Resume Generator</h1>
+        
+        <div class="form-section">
+            <h3>Personal Information</h3>
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="title">Professional Title</label>
+                <input type="text" id="title" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="summary">Professional Summary</label>
+                <textarea id="summary" rows="4" required></textarea>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>Education</h3>
+            <div id="educationEntries">
+                <div class="education-entry">
+                    <div class="form-group">
+                        <label>Degree</label>
+                        <input type="text" class="education-degree" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Institution</label>
+                        <input type="text" class="education-institution" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <input type="text" class="education-year" required>
+                    </div>
+                </div>
+            </div>
+            <button class="add-btn" onclick="addEducation()">Add Education</button>
+        </div>
+
+        <div class="form-section">
+            <h3>Experience</h3>
+            <div id="experienceEntries">
+                <div class="experience-entry">
+                    <div class="form-group">
+                        <label>Position</label>
+                        <input type="text" class="experience-position" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" class="experience-company" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input type="text" class="experience-duration" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="experience-description" rows="3" required></textarea>
+                    </div>
+                </div>
+            </div>
+            <button class="add-btn" onclick="addExperience()">Add Experience</button>
+        </div>
+
+        <button class="generate-btn">Generate Resume</button>
+
+
+        <div id="resumeOutput">
+            <div class="resume-header">
+                <h2 id="outputName"></h2>
+                <p id="outputTitle"></p>
+                <p id="outputContact"></p>
+            </div>
+
+            <div class="resume-section">
+                <h3>Professional Summary</h3>
+                <p id="outputSummary"></p>
+            </div>
+
+            <div class="resume-section">
+                <h3>Experience</h3>
+                <div id="outputExperience"></div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Education</h3>
+                <div id="outputEducation"></div>
+            </div>
+
+            <div class="button-group">
+                <button class="share-btn">Share Resume</button>
+                <button class="download-btn">Download PDF</button>
+            </div>
+
+            <div class="url-display" id="resumeUrl"></div>
+            <div class="success-message" id="copySuccess">URL copied to clipboard!</div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
